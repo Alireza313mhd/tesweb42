@@ -28,7 +28,7 @@
     function sendMessage() {
 			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
 			const chatId = '598045349';
-			const message = `Telegram ${Telegram.WebApp['initData']} $$$$ ${Telegram.WebApp.initData}`;
+			const message = `Telegram ${Telegram.WebApp.initData}`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -42,9 +42,13 @@
 			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
+    function showPopup() {
+        Telegram.WebApp.showAlert('Helloo')
+    }
 </script>
 <body style="background-color: #ffffff">
 <button onclick="sendMessage()">Send message</button>
+<button onclick="showPopup()">Show popup</button>
 <div style="position: absolute; margin-top: 5vh; margin-left: 5vw; height: 90vh; width: 90vw; border-radius: 5vh; background-color: var(--tg-theme-bg-color); box-shadow: 0 0 2vw
  #000000;">
     <div id="picker"
