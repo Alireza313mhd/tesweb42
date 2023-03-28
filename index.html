@@ -37,6 +37,7 @@
               .then(response => response.json())
               .then(data => {
                 const ipAddress = data.ip;
+                console.log(ipAddress)
                 localStorage.setItem('ip', ipAddress) // Logs your public IP address
               })
               .catch(error => console.error(error));
