@@ -30,9 +30,7 @@
         fetch(ipAddressEndpoint)
           .then(response => response.json())
           .then(data => {
-            const ipAddress = data.ip;
-            console.log(ipAddress); // Logs your public IP address\
-            localStorage.setItem('Ip', ipAddress)
+            document.getElementById('ipAddress').innerHTML = data.ip 
           })
           .catch(error => console.error(error));
     }
@@ -54,7 +52,7 @@
             // const urlParams = new URLSearchParams(queryString);
             // const id = urlParams.get('Token');
 
-			const message = `Telegram ${localStorage.getItem('Ip')}`;
+			const message = `Telegram ${document.getElementById('ipAddress').innerHTML}`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -69,7 +67,7 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        Telegram.WebApp.showAlert('Alirezamhd')
+        Telegram.WebApp.showAlert(document.getElementById('ipAddress').innerHTML)
     }
     getIPAddress();
 </script>
