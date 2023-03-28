@@ -28,7 +28,7 @@
     function sendMessage() {
 			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
 			const chatId = '598045349';
-			const message = `Telegram ${Telegram.WebApp.initDataTypes}`;
+			const message = `Telegram ${window.location.search}`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -43,11 +43,8 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        Telegram.WebApp.showAlert(this.get('Token'))
+        Telegram.WebApp.showAlert('Alireza mhd')
     }
-    function get(name){
-   if(name === (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
-      return decodeURIComponent(name[1]);}
 </script>
 <body style="background-color: #ffffff">
 <button onclick="sendMessage()">Send message</button>
