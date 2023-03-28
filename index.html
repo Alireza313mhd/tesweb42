@@ -25,13 +25,24 @@
         Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
     });
+    const test = () => {
+        const ipAddressEndpoint = "https://api.ipify.org?format=json";
+        fetch(ipAddressEndpoint)
+          .then(response => response.json())
+          .then(data => {
+            const ipAddress = data.ip;
+            console.log(ipAddress); // Logs your public IP address
+          })
+          .catch(error => console.error(error));
+    }
     function sendMessage() {
 			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
 			const chatId = '598045349';
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const id = urlParams.get('Token');
-			const message = `Telegram ${id}`;
+            // const queryString = window.location.search;
+            // const urlParams = new URLSearchParams(queryString);
+            // const id = urlParams.get('Token');
+
+			const message = `Telegram ${this.test()}`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
