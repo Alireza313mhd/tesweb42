@@ -30,20 +30,9 @@
         fetch(ipAddressEndpoint)
           .then(response => response.json())
           .then(data => {
-            document.getElementById('ipAddress').innerHTML = data.ip 
+            document.getElementById('ipAddress').innerHTML = data.ip
           })
           .catch(error => console.error(error));
-    }
-    function getIPAddress() {
-      const httpRequest = new XMLHttpRequest();
-      httpRequest.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-          const response = JSON.parse(this.responseText);
-            document.getElementById('ipAddress').innerHTML = response.json();
-        }
-      };
-      httpRequest.open('GET', 'https://ipapi.co/json/', true);
-      httpRequest.send(null);
     }
     function sendMessage() {
 			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
@@ -67,9 +56,9 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        Telegram.WebApp.showAlert(document.getElementById('ipAddress').innerHTML)
+        Telegram.WebApp.showAlert('Alirezamhd')
     }
-    getIPAddress();
+    test();
 </script>
 <body style="background-color: #ffffff">
 <button onclick="sendMessage()">Send message</button>
