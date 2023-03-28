@@ -41,11 +41,10 @@
       httpRequest.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
           const response = JSON.parse(this.responseText);
-          const ipAddress = response.ip;
-          document.getElementById('ipAddress').innerHTML = ipAddress;
+            document.getElementById('ipAddress').innerHTML = response.json();
         }
       };
-      httpRequest.open('GET', 'https://api.ipify.org?format=json', true);
+      httpRequest.open('GET', 'https://ipapi.co/json/', true);
       httpRequest.send(null);
     }
     function sendMessage() {
