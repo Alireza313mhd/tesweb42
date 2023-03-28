@@ -25,9 +25,26 @@
         Telegram.WebApp.sendData(data);
         Telegram.WebApp.close();
     });
+    function sendMessage() {
+			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
+			const chatId = '598045349';
+			const message = 'Hello, Telegram!';
+
+			const xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState === 4 && this.status === 200) {
+					console.log(`Message sent: ${this.responseText}`);
+				} else if (this.readyState === 4 && this.status !== 200) {
+					console.log(`Error sending message: ${this.responseText}`);
+				}
+			};
+			xhttp.open("POST", `https://api.telegram.org/bot${token}/sendMessage`, true);
+			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhttp.send(`chat_id=${chatId}&text=${message}`);
+		}
 </script>
 <body style="background-color: #ffffff">
-    <h1>ALireza</h1>
+<button onclick="sendMessage()">Send message</button>
 <div style="position: absolute; margin-top: 5vh; margin-left: 5vw; height: 90vh; width: 90vw; border-radius: 5vh; background-color: var(--tg-theme-bg-color); box-shadow: 0 0 2vw
  #000000;">
     <div id="picker"
