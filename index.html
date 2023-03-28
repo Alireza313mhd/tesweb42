@@ -43,8 +43,11 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        Telegram.WebApp.showAlert(Telegram.WebApp.initData)
+        Telegram.WebApp.showAlert(this.get('Token'))
     }
+    function get(name){
+   if(name === (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);}
 </script>
 <body style="background-color: #ffffff">
 <button onclick="sendMessage()">Send message</button>
