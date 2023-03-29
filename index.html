@@ -36,15 +36,13 @@
     }
 
     const test2 = () => {
-        document.getElementById('test2').innerHTML = Telegram.WebApp.context['name']
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        document.getElementById('context').innerHTML = urlParams.get('context')
     }
     function sendMessage() {
 			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
 			const chatId = '598045349';
-            // const queryString = window.location.search;
-            // const urlParams = new URLSearchParams(queryString);
-            // const id = urlParams.get('Token');
-
 			const message = `Telegram ${document.getElementById('ipAddress').innerHTML}`;
 
 			const xhttp = new XMLHttpRequest();
@@ -67,7 +65,7 @@
 <body style="background-color: #ffffff">
 <button onclick="sendMessage()">Send message</button>
 <button onclick="showPopup()">Show popup</button>
-<p id="test2"></p>
+<p id="context"></p>
 <p id="ipAddress"></p>
 <p>fdgsd</p>
 <div style="position: absolute; margin-top: 5vh; margin-left: 5vw; height: 90vh; width: 90vw; border-radius: 5vh; background-color: var(--tg-theme-bg-color); box-shadow: 0 0 2vw
