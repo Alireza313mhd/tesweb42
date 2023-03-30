@@ -56,7 +56,8 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        Telegram.WebApp.showAlert(`Telegram ${Telegram.WebApp.initDataUnsafe}`)
+        const t = Object.prototype.toString.call(Telegram.WebApp.initDataUnsafe)
+        Telegram.WebApp.showAlert(`Telegram ${t}`)
     }
     test();
 </script>
