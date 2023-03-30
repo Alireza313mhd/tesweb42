@@ -56,8 +56,13 @@
 			xhttp.send(`chat_id=${chatId}&text=${message}`);
 		}
     function showPopup() {
-        const t = JSON.stringify(Telegram.WebApp.initData, null, 2)
-        Telegram.WebApp.showAlert(`Telegram ${t}`)
+        const response = Telegram.WebApp.initData
+        const secret_key = HMAC_SHA256('5476946556:AAE64iQclmNuyKjkInVJtY5eqUqtDa3EoU4', "WebAppData")
+        if (hex(HMAC_SHA256(response, secret_key)) === hash) {
+          Telegram.WebApp.showAlert(`Telegram ${response}`)
+        } else {
+            Telegram.WebApp.showAlert(`Telegram Not`)
+        }
     }
     test();
 </script>
